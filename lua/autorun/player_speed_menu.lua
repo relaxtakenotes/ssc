@@ -1,0 +1,23 @@
+local function settings_list(Panel)
+	Panel:AddControl("Header", {description = "Only the server owner can change these settings!"})
+	Panel:AddControl("Checkbox", {Label="Override custom weapons (Requires a server restart)", Command="sv_player_speed_override_weapons"})
+	Panel:AddControl("Header", {description = "Player Speed"})
+	Panel:AddControl("Slider", {Label = "Walking", min=50, max=1000, Command = "sv_player_speed_walk"})
+	Panel:AddControl("Slider", {Label = "Running", min=50, max=1000, Command = "sv_player_speed_run"})
+	Panel:AddControl("Slider", {Label = "Slow walking", min=50, max=1000, Command = "sv_player_speed_slowwalk"})
+	Panel:AddControl("Slider", {Type="float", Label = "Crouch walking", min=0.1, max=1, Command = "sv_player_speed_crouched_walk"})
+	Panel:AddControl("Slider", {Label = "Maximum (=running speed)", min=50, max=1000, Command = "sv_player_speed_maxspeed"})
+	Panel:AddControl("Slider", {Type="float", Label = "Ducking speed", min=0.1, max=1, Command = "sv_player_speed_ducking"})
+	Panel:AddControl("Slider", {Type="float", Label = "Unducking speed", min=0.1, max=1, Command = "sv_player_speed_unducking"})
+
+	Panel:AddControl("Header", {description = "Time between each step"})
+	Panel:AddControl("Slider", {Label = "Ladder", min=50, max=1000, Command = "sv_player_stepsoundtime_ladder"})
+	Panel:AddControl("Slider", {Label = "Water", min=50, max=1000, Command = "sv_player_stepsoundtime_water"})
+	Panel:AddControl("Slider", {Label = "Running", min=50, max=1000, Command = "sv_player_stepsoundtime_run"})
+	Panel:AddControl("Slider", {Label = "Walking", min=50, max=1000, Command = "sv_player_stepsoundtime_walk"})
+	Panel:AddControl("Slider", {Label = "Slow walking", min=50, max=1000, Command = "sv_player_stepsoundtime_slowwalk"})
+end
+function setup_the_settings()
+	spawnmenu.AddToolMenuOption("Options", "Player Speed", "Player Speed", "Settings", "", "", settings_list, {} )
+end
+hook.Add("PopulateToolMenu", "playerspeed_settings_in_menu", setup_the_settings)
