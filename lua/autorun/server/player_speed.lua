@@ -19,6 +19,7 @@ hook.Add("PlayerStepSoundTime", "apply_custom_playerstepsoundtime", function(ply
 	player_stepsoundtime_run = GetConVarNumber("sv_player_stepsoundtime_run")
 	player_stepsoundtime_walk = GetConVarNumber("sv_player_stepsoundtime_walk")
 	player_stepsoundtime_slowwalk = GetConVarNumber("sv_player_stepsoundtime_slowwalk")
+	player_stepsoundtime_crouch_separate = GetConVarNumber("sv_player_stepsoundtime_crouch_separate")
 
 	local fStepTime = 350
 	local fMaxSpeed = ply:GetMaxSpeed()
@@ -36,8 +37,11 @@ hook.Add("PlayerStepSoundTime", "apply_custom_playerstepsoundtime", function(ply
 	elseif (iType == STEPSOUNDTIME_WATER_KNEE) then
 		fStepTime = player_stepsoundtime_water
 	end
+	
 	-- Step slower if crouching
-	if (ply:Crouching()) then
+	if (ply:Crouching() && player_stepsoundtime_crouch_separate != 0) then
+		fStepTime = player_stepsoundtime_crouch_separate
+	elseif ply:Crouching() && player_stepsoundtime_crouch_separate == 0 then 
 		fStepTime = fStepTime + 50
 	end
 
