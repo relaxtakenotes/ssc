@@ -56,6 +56,7 @@ hook.Add("PlayerFootstep", "apply_custom_player_speed", function(ply, pos, foot,
 	player_speed_ducking = GetConVarNumber("sv_player_speed_ducking")
 	player_speed_unducking = GetConVarNumber("sv_player_speed_unducking")
 	player_speed_crouched_walk = GetConVarNumber("sv_player_speed_crouched_walk")
+	player_speed_ladder = GetConVarNumber("sv_player_speed_ladder")
 	ply:SetWalkSpeed(player_speed_walk)
 	ply:SetSlowWalkSpeed(player_speed_slowwalk)
 	ply:SetUnDuckSpeed(player_speed_unducking)
@@ -63,6 +64,7 @@ hook.Add("PlayerFootstep", "apply_custom_player_speed", function(ply, pos, foot,
 	ply:SetRunSpeed(player_speed_run)
 	ply:SetMaxSpeed(player_speed_maxspeed)
 	ply:SetCrouchedWalkSpeed(player_speed_crouched_walk)
+	ply:SetLadderClimbSpeed(player_speed_ladder)
 end)
 
 if GetConVarNumber("sv_player_speed_override_weapons") == 1 then

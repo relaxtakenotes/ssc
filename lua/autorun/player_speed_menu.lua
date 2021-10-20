@@ -9,6 +9,7 @@ local function settings_list(Panel)
 	Panel:AddControl("Slider", {Label = "Maximum (=running speed)", min=50, max=1000, Command = "sv_player_speed_maxspeed"})
 	Panel:AddControl("Slider", {Type="float", Label = "Ducking speed", min=0.1, max=1, Command = "sv_player_speed_ducking"})
 	Panel:AddControl("Slider", {Type="float", Label = "Unducking speed", min=0.1, max=1, Command = "sv_player_speed_unducking"})
+	Panel:AddControl("Slider", {Label = "Ladder climb", min=50, max=1000, Command = "sv_player_speed_ladder"})
 
 	Panel:AddControl("Header", {description = "Time between each step"})
 	Panel:AddControl("Slider", {Label = "Ladder", min=50, max=1000, Command = "sv_player_stepsoundtime_ladder"})

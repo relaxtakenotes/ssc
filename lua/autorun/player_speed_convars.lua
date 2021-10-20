@@ -5,6 +5,7 @@ CreateConVar("sv_player_speed_maxspeed", 300, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
 CreateConVar("sv_player_speed_ducking", 0.3, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
 CreateConVar("sv_player_speed_unducking", 0.4, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
 CreateConVar("sv_player_speed_crouched_walk", 0.5, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
+CreateConVar("sv_player_speed_ladder", 100, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
 
 CreateConVar("sv_player_stepsoundtime_crouch_separate", 0, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
 CreateConVar("sv_player_stepsoundtime_ladder", 300, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
