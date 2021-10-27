@@ -74,5 +74,5 @@ end)
 if GetConVarNumber("sv_player_speed_override_weapons") == 1 then
 	hook.Remove("SetupMove", "ArcCW_SetupMove")
 	hook.Remove("SetupMove", "tfa_setupmove")
-	hook.Remove("SetupMove", "TacRP.Move")
+	hook.Remove("SetupMove", "ArcticTacRP.SetupMove")
 end
