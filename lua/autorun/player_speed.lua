@@ -71,8 +71,11 @@ hook.Add("PlayerFootstep", "apply_custom_player_speed", function(ply, pos, foot,
 	end
 end)
 
-if GetConVarNumber("sv_player_speed_override_weapons") == 1 then
-	hook.Remove("SetupMove", "ArcCW_SetupMove")
-	hook.Remove("SetupMove", "tfa_setupmove")
-	hook.Remove("SetupMove", "ArcticTacRP.SetupMove")
-end
+timer.Simple(3, function()
+	if GetConVarNumber("sv_player_speed_override_weapons") == 1 then
+		hook.Remove("SetupMove", "ArcCW_SetupMove")
+		hook.Remove("SetupMove", "tfa_setupmove")
+		hook.Remove("SetupMove", "ArcticTacRP.SetupMove")
+	end	
+end)
+
