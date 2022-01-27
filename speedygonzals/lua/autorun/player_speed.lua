@@ -1,5 +1,4 @@
--- Thank god for sublime text and it's easy keybinds...
--- I'd never do any of this with my own bare hands
+-- All of this looks dumb and retarded but I aint fixing it, can't be bothered
 local player_stepsoundtime_ladder = GetConVarNumber("sv_player_stepsoundtime_ladder")
 local player_stepsoundtime_water = GetConVarNumber("sv_player_stepsoundtime_water")
 local player_stepsoundtime_run = GetConVarNumber("sv_player_stepsoundtime_run")
@@ -14,6 +13,18 @@ local player_speed_ducking = GetConVarNumber("sv_player_speed_ducking")
 local player_speed_unducking = GetConVarNumber("sv_player_speed_unducking")
 local player_speed_crouched_walk = GetConVarNumber("sv_player_speed_crouched_walk")
 local player_speed_ladder = GetConVarNumber("sv_player_speed_ladder")
+
+concommand.Add("sv_player_speed_apply", function( ply, cmd, args )
+	ply:SetWalkSpeed(GetConVarNumber("sv_player_speed_walk"))
+	ply:SetSlowWalkSpeed(GetConVarNumber("sv_player_speed_run"))
+	ply:SetUnDuckSpeed(GetConVarNumber("sv_player_speed_slowwalk"))
+	ply:SetDuckSpeed(GetConVarNumber("sv_player_speed_maxspeed"))
+	ply:SetRunSpeed(GetConVarNumber("sv_player_speed_ducking"))
+	ply:SetMaxSpeed(GetConVarNumber("sv_player_speed_unducking"))
+	ply:SetCrouchedWalkSpeed(GetConVarNumber("sv_player_speed_crouched_walk"))
+	ply:SetLadderClimbSpeed(GetConVarNumber("sv_player_speed_ladder"))
+	print("Custom speed applied.")
+end)
 
 hook.Add("PlayerStepSoundTime", "apply_custom_playerstepsoundtime", function(ply, iType, bWalking)
 	player_stepsoundtime_ladder = GetConVarNumber("sv_player_stepsoundtime_ladder")
@@ -59,6 +70,7 @@ hook.Add("PlayerFootstep", "apply_custom_player_speed", function(ply, pos, foot,
 	player_speed_unducking = GetConVarNumber("sv_player_speed_unducking")
 	player_speed_crouched_walk = GetConVarNumber("sv_player_speed_crouched_walk")
 	player_speed_ladder = GetConVarNumber("sv_player_speed_ladder")
+	if GetConVar("sv_player_speed_inertia_mod"):GetInt() == 1 then return end
 	if SERVER then
 		ply:SetWalkSpeed(player_speed_walk)
 		ply:SetSlowWalkSpeed(player_speed_slowwalk)
