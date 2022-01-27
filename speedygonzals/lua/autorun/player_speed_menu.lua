@@ -1,6 +1,5 @@
 local function settings_list(Panel)
 	Panel:AddControl("Header", {description = "Only the server owner can change these settings!"})
-	Panel:AddControl("Checkbox", {Label="Movement inertia mod compatability", Command="sv_player_speed_inertia_mod"})
 	Panel:AddControl("Checkbox", {Label="Override custom weapons (Requires a server restart)", Command="sv_player_speed_override_weapons"})
 	Panel:AddControl("Header", {description = "Player Speed"})
 	Panel:AddControl("Slider", {Label = "Walking", min=50, max=1000, Command = "sv_player_speed_walk"})

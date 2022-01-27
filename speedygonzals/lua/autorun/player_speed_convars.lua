@@ -15,6 +15,3 @@ CreateConVar("sv_player_stepsoundtime_walk", 300, {FCVAR_REPLICATED, FCVAR_ARCHI
 CreateConVar("sv_player_stepsoundtime_slowwalk", 500, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
 
 CreateConVar("sv_player_speed_override_weapons", 1, {FCVAR_REPLICATED, FCVAR_ARCHIVE})
-
-CreateConVar("sv_player_speed_inertia_mod", 1, {FCVAR_REPLICATED, FCVAR_ARCHIVE}, "Compatability with the movement inertia mod.")
-
